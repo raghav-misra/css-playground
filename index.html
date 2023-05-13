@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>CSS Playground</title>
+	<link href="normalize.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div id="app">
+		<h1>
+			CSS Playground
+			<small class="cred">Enjoy! From Raghav and Lehuy</small>
+			<br>
+
+			<input type="checkbox" v-model="noStyle" />
+			<label style="font-size: 16px;">No CSS</label>
+		</h1>
+		
+		<div class="flex-container">
+			<div class="inputs">
+				<div>
+					<!-- Font Size -->
+					
+
+					<!-- Background -->
+					<div class="group">
+						<h3>background: {{ styles.background }};</h3>
+						<input type="text" v-model="styles.background">
+					</div>
+				</div>
+
+				<div>
+					<!-- Color -->
+					<div class="group">
+						<h3>color: {{ styles.color }};</h3>
+						<input type="text" v-model="styles.color">
+					</div>
+
+					<!-- Border Color -->
+					<div class="group">
+						<h3>border-color: {{ styles.borderColor }};</h3>
+						<input type="text" v-model="styles.borderColor">
+					</div>
+          	<!-- Border radius -->
+            <div class="group">
+						<h3>border-radius: {{ styles.borderRadius }}px;</h3>
+						<input 
+							type="range" 
+							min="0" max="50"
+							v-model="styles.borderRadius"
+						>
+					</div>
+        
+				</div>
+
+				<div>
+					<!-- Border width -->
+					<div class="group">
+						<h3>border-width: {{ styles.borderWidth }}px;</h3>
+						<input 
+							type="range" 
+							min="0" max="10"
+							v-model="styles.borderWidth"
+						>
+					</div>
+
+					<!-- Border style -->
+					<div class="group">
+						<h3>border-style: {{ styles.borderStyle }};</h3>
+						<select v-model="styles.borderStyle">
+							<option value="solid">solid</option>
+							<option value="dotted">dotted</option>
+							<option value="dashed">dashed</option>
+						</select>
+					</div>
+				</div>
+
+				<div>
+					<!-- Width -->
+					<div class="group">
+						<h3>width: {{ styles.width }}px;</h3>
+						<input 
+							type="range" 
+							min="0" max="350"
+							v-model="styles.width"
+						>
+					</div>
+
+					<!-- height -->
+					<div class="group">
+						<h3>height: {{ styles.height }}px;</h3>
+						<input 
+							type="range" 
+							min="0" max="200"
+							v-model="styles.height"
+						>
+					</div>
+				</div>
+
+				<div>
+					<!-- Text Align -->
+					<div class="group">
+						<h3>text-align: {{ styles.textAlign }};</h3>
+						<select v-model="styles.textAlign">
+							<option value="left">left</option>
+							<option value="center">center</option>
+							<option value="right">right</option>
+						</select>
+					</div>
+
+					<!-- Display -->
+					<div class="group">
+						<h3>display: {{ styles.display }};</h3>
+						<select v-model="styles.display">
+							<option value="block">block</option>
+							<option value="inline-block">inline-block</option>
+						</select>
+					</div>
+				</div>
+
+				<div>
+					<!-- Padding -->
+					<div class="group">
+						<h3>padding: {{ styles.padding }}px;</h3>
+						<input 
+							type="range" 
+							min="0" max="50"
+							v-model="styles.padding"
+						>
+					</div>
+
+					<!-- Margin -->
+					<div class="group">
+						<h3>margin: {{ styles.margin }}px;</h3>
+						<input 
+							type="range" 
+							min="0" max="50"
+							v-model="styles.margin"
+						>
+					</div>
+				</div>
+			</div>
+
+			<div class="preview" :style="`text-align: ${styles.textAlign}`">
+				<div 
+					class="example" 
+					:style="css"
+				>
+					Top Ten Ways To CSS
+				</div>
+				<div 
+					class="example" 
+					:style="css"
+				>
+					Top Ten Ways To CSS
+				</div>
+			</div>
+		</div>
+    
+	</div>
+
+
+	<script 
+		src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+	</script>
+	<script src="index.js"></script>
+</body>
+</html>
